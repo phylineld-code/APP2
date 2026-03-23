@@ -23,7 +23,9 @@ def verification_donne(listes_avion):
                 id_avion = id_avion.strip()
                 if len(id_avion) < 2 or len(id_avion) > 40:
                     erreurs.append({"erreur n°":edico,"erreur": "La valeur de id est trop courte ou trop longue"})
-                elif not all(c.isalnum() or c in "-_ ./'" for c in id_avion):
+                # c.isalnum() est True si c est une lettre ou un chiffre.
+                # Ici, on colle au dataset: id doit etre uniquement alphanumerique (pas d'espace, -, _, etc.).
+                elif not all(c.isalnum() for c in id_avion):
                     erreurs.append({"erreur n°":edico,"erreur": "La valeur de id contient des caracteres invalides"})
                 elif not any(c.isalpha() for c in id_avion):
                     erreurs.append({"erreur n°":edico,"erreur": "La valeur de id doit contenir au moins une lettre"})
