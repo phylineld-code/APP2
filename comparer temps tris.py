@@ -1,4 +1,4 @@
-from code clemsou import insertion_sort, bubble_sort, selection_sort
+from code_clemsou import insertion_sort
 import time
 
 start = time.time()
